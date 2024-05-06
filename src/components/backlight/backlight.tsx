@@ -4,7 +4,15 @@ import { useEffect, useState } from 'react'
 import { TabItem } from './tabItem'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
-export function Backlight({ tabsArray }) {
+interface Tab {
+  title: string
+}
+
+interface BacklightProps {
+  tabsArray: Tab[]
+}
+
+export function Backlight({ tabsArray }: BacklightProps) {
   useEffect(() => {
     if (typeof document !== 'undefined') {
       const captures = document.querySelectorAll('.glow-capture')
@@ -43,6 +51,7 @@ export function Backlight({ tabsArray }) {
       <Tabs.List className="w-full flex justify-evenly gap-2 border-2 border-b-1 border-transparent">
         {tabsArray.map((tab) => (
           <TabItem
+            key={tab.title}
             ref={parent}
             value={tab.title}
             title={tab.title}
@@ -50,8 +59,9 @@ export function Backlight({ tabsArray }) {
           />
         ))}
       </Tabs.List>
-      <Tabs.Content />
-      <div className="glow-overlay "></div>
+      <Tabs.Content value="Home">
+        <div className="glow-overlay ">ok</div>
+      </Tabs.Content>
     </Tabs.Root>
   )
 }
