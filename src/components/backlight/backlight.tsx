@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { TabItem } from './tabItem'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+
 
 interface Tab {
   title: string
@@ -15,6 +17,46 @@ interface BacklightProps {
 
 export function Backlight({ tabsArray }: BacklightProps) {
   const router = useRouter()
+  const [currentTab, setCurrentTab] = useState('')
+  const [parent] = useAutoAnimate()
+
+  function sanitizeTitle(title: string): string {
+    const unaccentedTitle = title
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+
+    const regex = /[^\w\s]/g
+
+    return unaccentedTitle.replace(regex, '')
+  }
+
+  const currentPath = usePathname();
+
+  useEffect(() => {
+    // Function to desanitize title from sanitized URL path
+    const desanitizeTitle = (sanitizedTitle: string): string => {
+      return sanitizedTitle.replace(/_/g, ' ').replace(/(\s+)/g, '-');
+    };
+
+    // Extract tab name from the sanitized URL path
+    const tabFromPath = currentPath.substring(1); // Remove leading '/'
+    const currentTab = desanitizeTitle(tabFromPath);
+
+    // Set the current tab
+    setCurrentTab(currentTab);
+
+  }, [])
+
+
+  function handleClick(tab: string) {
+    let path = '/';
+    if (tab !== 'Home') {
+      const sanitizedTab = sanitizeTitle(tab);
+      path = `/${sanitizedTab}`;
+    }
+    setCurrentTab(tab);
+    router.push(path);
+  }
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -41,27 +83,7 @@ export function Backlight({ tabsArray }: BacklightProps) {
       })
     }
   }, [])
-
-  const [currentTab, setCurrentTab] = useState('Home')
-  const [parent] = useAutoAnimate()
-
-  function sanitizeTitle(title: string): string {
-    const unaccentedTitle = title
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-
-    const regex = /[^\w\s]/g
-
-    return unaccentedTitle.replace(regex, '')
-  }
-
-  // Inside your component
-  function handleClick(tab: string) {
-    const sanitizedTab = sanitizeTitle(tab)
-    setCurrentTab(sanitizedTab)
-    router.push(`/${sanitizedTab}`)
-  }
-
+  
   return (
     <Tabs.Root
       ref={parent}

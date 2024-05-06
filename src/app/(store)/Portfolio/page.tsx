@@ -2,13 +2,13 @@ import { Button } from '@/components/button'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Contato',
 }
 
-export default function Home() {
+export default function Portfolio() {
   return (
     <div className="">
-      <Button variant="ghost" title="Home" />
+      <Button variant="ghost" title="Portfolio" />
     </div>
   )
 }
