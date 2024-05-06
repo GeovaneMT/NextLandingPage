@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="">
-      <p className="dark:bg-red-500">teste</p>
       <Button variant="ghost" title="example" />
     </div>
   )

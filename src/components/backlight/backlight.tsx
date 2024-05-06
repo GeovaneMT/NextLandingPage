@@ -3,6 +3,7 @@ import * as Tabs from '@radix-ui/react-tabs'
 import { useEffect, useState } from 'react'
 import { TabItem } from './tabItem'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { useRouter } from 'next/navigation'
 
 interface Tab {
   title: string
@@ -13,6 +14,8 @@ interface BacklightProps {
 }
 
 export function Backlight({ tabsArray }: BacklightProps) {
+  const router = useRouter()
+
   useEffect(() => {
     if (typeof document !== 'undefined') {
       const captures = document.querySelectorAll('.glow-capture')
@@ -42,26 +45,43 @@ export function Backlight({ tabsArray }: BacklightProps) {
   const [currentTab, setCurrentTab] = useState('Home')
   const [parent] = useAutoAnimate()
 
+  function sanitizeTitle(title: string): string {
+    const unaccentedTitle = title
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+
+    const regex = /[^\w\s]/g
+
+    return unaccentedTitle.replace(regex, '')
+  }
+
+  // Inside your component
+  function handleClick(tab: string) {
+    const sanitizedTab = sanitizeTitle(tab)
+    setCurrentTab(sanitizedTab)
+    router.push(`/${sanitizedTab}`)
+  }
+
   return (
     <Tabs.Root
+      ref={parent}
       value={currentTab}
-      onValueChange={setCurrentTab}
+      onValueChange={handleClick}
       className="relative glow-capture w-full"
     >
       <Tabs.List className="w-full flex justify-evenly gap-2 border-2 border-b-1 border-transparent">
         {tabsArray.map((tab) => (
-          <TabItem
-            key={tab.title}
-            ref={parent}
-            value={tab.title}
-            title={tab.title}
-            IsSelected={currentTab === tab.title}
-          />
+          <>
+            <TabItem
+              key={tab.title}
+              value={tab.title}
+              title={tab.title}
+              IsSelected={currentTab === tab.title}
+            />
+            <div className="glow-overlay " />
+          </>
         ))}
       </Tabs.List>
-      <Tabs.Content value="Home">
-        <div className="glow-overlay ">ok</div>
-      </Tabs.Content>
     </Tabs.Root>
   )
 }
