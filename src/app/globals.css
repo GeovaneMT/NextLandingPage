@@ -4,7 +4,7 @@
 
 .glow-overlay {
   --glow-size: 8rem;
-  --glow-color: white;
+  --glow-color: black;
 
   position: absolute;
   inset: 0;

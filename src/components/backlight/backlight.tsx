@@ -56,7 +56,7 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
           overlay.style.setProperty('--glow-x', `${x}px`)
           overlay.style.setProperty('--glow-y', `${y}px`)
           overlay.style.setProperty('--glow-opacity', '1')
-          overlay.style.setProperty('--glow-color', 'black')
+          overlay.style.setProperty('--glow-color', 'white')
         })
 
         capture.addEventListener('mouseleave', () => {
