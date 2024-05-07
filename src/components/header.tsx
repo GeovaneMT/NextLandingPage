@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Suspense } from 'react';
-import WhiteLogo from '../../public/White-Logo.png';
-import BlackLogo from '../../public/Black-Logo.png';
-import { Backlight } from '@/components/backlight/backlight';
-import { Menu } from '@/components/menu';
-import { useTheme } from 'next-themes';
-import { SwitchMode } from './switch';
+import Link from 'next/link'
+import Image from 'next/image'
+import { Suspense } from 'react'
+import WhiteLogo from '../../public/White-Logo.png'
+import BlackLogo from '../../public/Black-Logo.png'
+import { Backlight } from '@/components/backlight/backlight'
+import { Menu } from '@/components/menu'
+import { useTheme } from 'next-themes'
+import { SwitchMode } from './switch'
 
 export function Header() {
   const tabsArray = [
@@ -16,11 +16,19 @@ export function Header() {
     { title: 'Portfólio' },
     { title: 'Blog' },
     { title: 'Contato' },
-  ];
-  const { resolvedTheme, setTheme } = useTheme();
+  ]
+  const pathsArray = [
+    { path: '/' },
+    { path: 'Historia' },
+    { path: 'Marca' },
+    { path: 'Portfolio' },
+    { path: 'Blog' },
+    { path: 'Contato' },
+  ]
+  const { resolvedTheme, setTheme } = useTheme()
 
   // Determine which logo to display based on the current theme
-  const logoSrc = resolvedTheme === 'dark' ? WhiteLogo.src : BlackLogo.src;
+  const logoSrc = resolvedTheme === 'dark' ? WhiteLogo.src : BlackLogo.src
 
   return (
     <div className="relative px-8 py-4 flex items-center justify-between border-2 bg-zinc-950 border-zinc-950 rounded-md w-full shadow-lg shadow-black/80">
@@ -39,17 +47,19 @@ export function Header() {
           </Link>
         </div>
         <div className="items-center gap-4 md:flex hidden">
-          <Backlight tabsArray={tabsArray} />
+          <Backlight tabsArray={tabsArray} pathsArray={pathsArray} />
         </div>
         <div className="items-center gap-4 flex md:hidden">
           <Menu />
         </div>
         <SwitchMode
           onCheckedChange={(checked: boolean) => {
-          setTheme(checked ? 'dark' : 'light');
+            setTheme(
+              checked ? (resolvedTheme === 'dark' ? 'light' : 'dark') : 'system'
+            )
           }}
         />
       </>
     </div>
-  );
+  )
 }
