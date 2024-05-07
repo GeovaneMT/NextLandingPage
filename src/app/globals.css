@@ -6,6 +6,7 @@
   --glow-size: 8rem;
 
   position: absolute;
+  z-index: 1;
   inset: 0;
   pointer-events: none;
   user-select: none;

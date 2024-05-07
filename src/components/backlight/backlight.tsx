@@ -39,51 +39,48 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
   }, [])
 
   useEffect(() => {
-    if (typeof document !== 'undefined') {
-
-      const captures = document.querySelectorAll('.glow-capture')
-      const defaultOverlay = document.querySelectorAll('.glow-overlay');
-      const html = document.querySelector('html');
-      
-      const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-            const theme = html.classList.contains('dark') ? 'dark' : 'light';
-            if (theme === 'light') {
-              defaultOverlay.forEach(overlay => {
-                overlay.style.setProperty('--glow-color', 'black');
-              });
-            } else {
-              defaultOverlay.forEach(overlay => {
-                overlay.style.setProperty('--glow-color', 'white');
-              });
-            }
-          }
+    if (typeof document === 'undefined') return;
+  
+    const html = document.querySelector('html');
+    const captures = document.querySelectorAll('.glow-capture');
+    const defaultOverlay = document.querySelectorAll('.glow-overlay');
+  
+    const observer = new MutationObserver(mutationsList => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const theme = html.classList.contains('dark') ? 'dark' : 'light';
+          const glowColor = theme === 'light' ? 'black' : 'white';
+          defaultOverlay.forEach(overlay => {
+            overlay.style.setProperty('--glow-color', glowColor);
+          });
         }
+      }
+    });
+  
+    observer.observe(html, { attributes: true });
+  
+    captures.forEach(capture => {
+      const clonedChild = capture.children[0].cloneNode(true);
+      const overlay = capture.querySelector('.glow-overlay');
+  
+      overlay.appendChild(clonedChild);
+  
+      capture.addEventListener('mousemove', event => {
+        const { pageX, pageY } = event;
+        const x = pageX - capture.offsetLeft;
+        const y = pageY - capture.offsetTop;
+  
+        overlay.style.setProperty('--glow-x', `${x}px`);
+        overlay.style.setProperty('--glow-y', `${y}px`);
+        overlay.style.setProperty('--glow-opacity', '1');
       });
-      observer.observe(html, { attributes: true });
-
-      captures.forEach((capture) => {
-        const clonedChild = capture.children[0].cloneNode(true)
-        const overlay = capture.querySelector('.glow-overlay')
-
-        overlay.appendChild(clonedChild)
-
-        capture.addEventListener('mousemove', (event) => {
-          const x = event.pageX - capture.offsetLeft
-          const y = event.pageY - capture.offsetTop
-
-          overlay.style.setProperty('--glow-x', `${x}px`)
-          overlay.style.setProperty('--glow-y', `${y}px`)
-          overlay.style.setProperty('--glow-opacity', '1')
-        })
-
-        capture.addEventListener('mouseleave', () => {
-          overlay.style.setProperty('--glow-opacity', '0')
-        })
-      })
-    }
-  }, [])
+  
+      capture.addEventListener('mouseleave', () => {
+        overlay.style.setProperty('--glow-opacity', '0');
+      });
+    });
+  }, []);
+  
 
   return (
     <Tabs.Root
