@@ -6,7 +6,10 @@ interface SwitchModeProps {
   onCheckedChange: (checked: boolean) => void
 }
 
-export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange, checked }) => (
+export const SwitchMode: React.FC<SwitchModeProps> = ({
+  onCheckedChange,
+  checked,
+}) => (
   <form className="cursor-pointer">
     <div className="flex items-center">
       <label
@@ -16,7 +19,7 @@ export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange, checked
       <Switch.Root
         onCheckedChange={onCheckedChange}
         checked={checked}
-        className="w-[42px] h-[25px] rounded-full relative shadow-[0_2px_10px] shadow-blackA-blackA4 highlighted:shadow-blackA-blackA7 dark:shadow-grayDark-gray4 dark:highlighted:shadow-grayDark-gray7 data-[state=checked]:bg-orange-orange9 data-[state=unchecked]:bg-gray-gray10 outline-none cursor-default"
+        className="w-[42px] h-[25px] rounded-full relative shadow-[0_2px_10px] shadow-blackA-blackA4 highlighted:shadow-blackA-blackA7 dark:shadow-grayDark-gray1 dark:highlighted:shadow-grayDark-gray4 data-[state=checked]:bg-orange-orange9 data-[state=unchecked]:bg-gray-gray10 outline-none cursor-default"
         id="Theme-Switch"
         style={
           {
