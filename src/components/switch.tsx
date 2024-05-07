@@ -14,7 +14,7 @@ export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange }) => (
       ></label>
       <Switch.Root
         onCheckedChange={onCheckedChange}
-        className="w-[42px] h-[25px] bg-blackA6 rounded-full relative shadow-[0_2px_10px] shadow-blackA4 focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-black outline-none cursor-default"
+        className="w-[42px] h-[25px] bg-blackA-blackA1 dark:bg-gray-gray12 rounded-full relative shadow-[0_2px_10px] shadow-blackA-blackA1 focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-orange-orange9 outline-none cursor-default"
         id="Theme-Switch"
         style={
           {

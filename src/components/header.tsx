@@ -31,7 +31,7 @@ export function Header() {
   const logoSrc = resolvedTheme === 'dark' ? WhiteLogo.src : BlackLogo.src
 
   return (
-    <div className="relative px-8 py-4 flex items-center justify-between border-2 bg-zinc-950 border-zinc-950 rounded-md w-full shadow-lg shadow-black/80">
+    <div className="relative px-8 py-4 flex items-center justify-between border-b-2 bg-gray-gray1 dark:bg-black border-gray-gray7 dark:border-grayDark-gray1 rounded-md w-full shadow-lg shadow-gray-gray7 dark:shadow-grayDark-gray1 ">
       <>
         <div className="flex items-center gap-5 ml-2 p-2">
           <Link href="/" className="text-2xl font-extrabold text-white ">

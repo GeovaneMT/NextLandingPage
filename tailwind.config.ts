@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
-import { blackA, mauve, violet } from '@radix-ui/colors'
+import * as colors from '@radix-ui/colors'
 /** @type {import('tailwindcss').Config} */
 
 const config: Config = {
@@ -33,9 +33,7 @@ const config: Config = {
             colors: {
               // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix
               glow: 'color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)',
-              ...blackA,
-              ...mauve,
-              ...violet,
+              ...colors, // Importing all default colors
             },
             keyframes: {
               slideDownAndFade: {
