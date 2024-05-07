@@ -20,21 +20,3 @@
 
   will-change: mask;
 }
-.glow-overlay-dark {
-  --glow-size: 8rem;
-  --glow-color: black;
-
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  user-select: none;
-  opacity: var(--glow-opacity, 0);
-  mask: radial-gradient(
-    var(--glow-size) var(--glow-size) at var(--glow-x) var(--glow-y),
-    var(--glow-color) 1%,
-    transparent 50%
-  );
-  transition: .4s mask ease, opacity .4s ease-in-out;
-
-  will-change: mask;
-}

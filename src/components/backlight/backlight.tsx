@@ -46,7 +46,6 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
       captures.forEach((capture) => {
         const clonedChild = capture.children[0].cloneNode(true)
         const overlay = capture.querySelector('.glow-overlay')
-        const overlay = capture.querySelector('.glow-overlay')
 
         overlay.appendChild(clonedChild)
 
@@ -57,6 +56,7 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
           overlay.style.setProperty('--glow-x', `${x}px`)
           overlay.style.setProperty('--glow-y', `${y}px`)
           overlay.style.setProperty('--glow-opacity', '1')
+          overlay.style.setProperty('--glow-color', 'black')
         })
 
         capture.addEventListener('mouseleave', () => {
@@ -80,7 +80,7 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
               title={tab.title}
               IsSelected={currentTab === tab.title}
             />
-            <div className="glow-overlay dark:glow-overlay-dark " />
+            <div className="glow-overlay " />
           </div>
         ))}
       </Tabs.List>
