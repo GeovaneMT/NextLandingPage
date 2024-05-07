@@ -23,6 +23,9 @@ const config: Config = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    plugin(function({ addVariant }) {
+      addVariant('highlighted', ['&:hover', '&:focus'])
+    }),
     plugin(
       function ({ addVariant }) {
         addVariant('glow', '.glow-capture .glow-overlay &')

@@ -2,10 +2,11 @@ import React from 'react'
 import * as Switch from '@radix-ui/react-switch'
 
 interface SwitchModeProps {
+  checked: boolean
   onCheckedChange: (checked: boolean) => void
 }
 
-export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange }) => (
+export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange, checked }) => (
   <form className="cursor-pointer">
     <div className="flex items-center">
       <label
@@ -14,7 +15,8 @@ export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange }) => (
       ></label>
       <Switch.Root
         onCheckedChange={onCheckedChange}
-        className="w-[42px] h-[25px] bg-blackA-blackA1 dark:bg-gray-gray12 rounded-full relative shadow-[0_2px_10px] shadow-blackA-blackA1 focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-orange-orange9 outline-none cursor-default"
+        checked={checked}
+        className="w-[42px] h-[25px] rounded-full relative shadow-[0_2px_10px] shadow-blackA-blackA4 highlighted:shadow-blackA-blackA7 dark:shadow-grayDark-gray4 dark:highlighted:shadow-grayDark-gray7 data-[state=checked]:bg-orange-orange9 data-[state=unchecked]:bg-gray-gray10 outline-none cursor-default"
         id="Theme-Switch"
         style={
           {
@@ -22,7 +24,7 @@ export const SwitchMode: React.FC<SwitchModeProps> = ({ onCheckedChange }) => (
           } as React.CSSProperties
         } // Type assertion
       >
-        <Switch.Thumb className="block w-[21px] h-[21px] bg-white rounded-full cursor-pointer shadow-[0_2px_2px] shadow-blackA4 transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]" />
+        <Switch.Thumb className="block w-[21px] h-[21px] bg-white rounded-full cursor-pointer  transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]" />
       </Switch.Root>
     </div>
   </form>
