@@ -1,10 +1,9 @@
-'use client'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Backlight } from '@/components/backlight/backlight'
 import { Menu } from '@/components/menu'
 import { useClient } from './use-client'
-import { SwitchMode } from '@/components/switch'
+import { SwitchMode } from '../switch'
 
 export function Header() {
   const tabsArray = [
