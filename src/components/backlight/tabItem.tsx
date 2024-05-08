@@ -14,7 +14,8 @@ export function TabItem({ value, title, IsSelected = false }: TabItemProps) {
       value={value}
       className="relative px-2 text-center rounded-md mr-0. w-full glow glow:ring-1 glow:border-glow glow:text-glow glow:ring-glow glow:border-glow/[.15] glow:text-glow/[10.15] glow:bg-glow/[.03] dark:glow:bg-glow/[.08] text-gray-gray10 dark:text-grayDark-gray10 data-[state=active]:text-grayDark-gray1 dark:data-[state=active]:text-gray-gray1  transition-all "
     >
-      <span className=''>{title}</span> {/*stiles aplied here work on all elements*/}
+      <span className="">{title}</span>{' '}
+      {/*stiles aplied here work on all elements*/}
       {IsSelected && (
         <motion.div
           layoutId="activeTab"

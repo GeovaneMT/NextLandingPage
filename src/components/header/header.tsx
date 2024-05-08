@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Suspense, useState, useEffect } from 'react'
 import { Backlight } from '@/components/backlight/backlight'
 import { Menu } from '@/components/menu'
-import { useTheme } from 'next-themes'
-import { SwitchMode } from './switch'
+import { useClient } from './use-client'
+import { SwitchMode } from '@/components/switch'
 
 export function Header() {
   const tabsArray = [
@@ -24,25 +23,7 @@ export function Header() {
     { path: 'Contato' },
   ]
 
-  const { setTheme, resolvedTheme, systemTheme, theme } = useTheme()
-
-  const [checked, setChecked] = useState<boolean | null>(null)
-  const [image, setImage] = useState<string | null>(null)
-
-  const handleCheckedChange = () => {
-    setChecked(!checked)
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-  }
-
-  useEffect(
-    () => setChecked(!!(resolvedTheme !== systemTheme)),
-    [resolvedTheme, systemTheme]
-  )
-
-  useEffect(() => {
-    const logoSrc = theme === 'dark' ? '/White-Logo.png' : '/Black-Logo.png'
-    setImage(logoSrc)
-  }, [theme])
+  const { checked, handleCheckedChange, image } = useClient()
 
   return (
     <div className="relative px-8 py-4 flex items-center justify-between border-b-2 bg-gray-gray1 dark:bg-black border-gray-gray7 dark:border-grayDark-gray1 rounded-md w-full shadow-lg shadow-gray-gray7 dark:shadow-grayDark-gray1 ">
