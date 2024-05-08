@@ -21,7 +21,9 @@ export function Header() {
         <div className="items-center gap-4 flex md:hidden">
           <Menu />
         </div>
-        <SwitchTheme />
+        <div className='hidden md:flex'>
+          <SwitchTheme />
+        </div>
       </>
     </div>
   );

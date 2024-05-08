@@ -24,9 +24,8 @@ export function Brand() {
           height={300}
         />
       ) : (
-        <p className="text-black dark:text-white text-sm">
-          Carregando...
-        </p>
+        <img src="/Gray-Logo.png" alt="Gray Logo" className='object-contain h-4 object-left w-max' />
+        
       )}
     </>
   )
