@@ -8,23 +8,21 @@ import { tabsArray, pathsArray } from './nav-data';
 export function Header() {
 
   return (
-    <div className="relative px-8 py-4 flex items-center justify-between border-b-2 bg-gray-gray1 dark:bg-black border-gray-gray7 dark:border-grayDark-gray1 rounded-md w-full shadow-lg shadow-gray-gray7 dark:shadow-grayDark-gray1 ">
-      <>
-        <div className="flex items-center gap-5 ml-2 p-2">
-          <Link href="/" className="text-2xl font-extrabold text-white ">
+    <div className="relative px-8 py-4 grid grid-cols-6 grid-rows-1 items-center justify-between border-b-2 bg-gray-gray1 dark:bg-black border-gray-gray7 dark:border-grayDark-gray1 rounded-md w-full shadow-lg shadow-gray-gray7 dark:shadow-grayDark-gray1 ">
+      <div className="items-center gap-4 flex md:hidden col-span-1">
+        <Menu />
+      </div>
+      <div className="flex items-center gap-5 ml-2 p-2 w-full col-span-4 justify-center md:col-span-1">
+        <Link href="/" className="text-2xl font-extrabold text-white">
           <Brand />
-          </Link>
-        </div>
-        <div className="items-center gap-4 md:flex hidden">
-          <Backlight tabsArray={tabsArray} pathsArray={pathsArray} />
-        </div>
-        <div className="items-center gap-4 flex md:hidden">
-          <Menu />
-        </div>
-        <div className='hidden md:flex'>
-          <SwitchTheme />
-        </div>
-      </>
+        </Link>
+      </div>
+      <div className="items-center gap-4 hidden justify-center md:flex md:col-span-4">
+        <Backlight tabsArray={tabsArray} pathsArray={pathsArray} />
+      </div>
+      <div className='col-span-1 flex justify-end'>
+        <SwitchTheme />
+      </div>
     </div>
   );
 }

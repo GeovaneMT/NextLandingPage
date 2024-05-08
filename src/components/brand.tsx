@@ -3,10 +3,14 @@
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
 export function Brand() {
   
   const [image, setImage] = useState<string | null>(null)
   const { theme } = useTheme()
+  const [parent] = useAutoAnimate()
+
 
   useEffect(() => {
     const logoSrc = theme === 'dark' ? '/White-Logo.png' : '/Black-Logo.png'
@@ -14,19 +18,16 @@ export function Brand() {
   }, [theme])
 
   return (
-    <>
-      {image ? (
+    <div ref={parent}>
+      {image && (
         <Image
-          className="object-contain h-4 object-left w-max"
+          className="object-contain h-3 object-left w-max"
           src={image}
           alt="My image"
           width={300}
           height={300}
         />
-      ) : (
-        <img src="/Gray-Logo.png" alt="Gray Logo" className='object-contain h-4 object-left w-max' />
-        
       )}
-    </>
+    </div>
   )
 }

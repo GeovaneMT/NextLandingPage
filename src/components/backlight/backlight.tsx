@@ -25,7 +25,7 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
     <Tabs.Root
       value={currentTab}
       onValueChange={setCurrentTab}
-      className="relative glow-capture w-full"
+      className="relative glow-capture w-max"
     >
       <Tabs.List className="w-full flex justify-evenly gap-2 border-2 border-b-1 border-transparent">
         {tabsArray.map((tab, index) => (
