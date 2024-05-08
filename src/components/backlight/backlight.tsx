@@ -1,14 +1,12 @@
 import * as Tabs from '@radix-ui/react-tabs'
-import { useEffect, useState } from 'react'
-import { TabItem } from './tabItem'
-import { useRouter } from 'next/navigation'
-import { usePathname } from 'next/navigation'
+import { useGlowEffect, SetTabFromURL, useTabs } from './use-client'
+import { TabClickHandler } from './use-client'
 
-interface Tab {
+export interface Tab {
   title: string
 }
 
-interface Path {
+export interface Path {
   path: string
 }
 
@@ -18,92 +16,26 @@ interface BacklightProps {
 }
 
 export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
-  const pathname = usePathname()
-  const router = useRouter()
-  const [currentTab, setCurrentTab] = useState('')
+  const { currentTab, setCurrentTab } = useTabs()
 
-  function handleClick(tab: Tab, index: number) {
-    setCurrentTab(tab.title)
-    router.push(pathsArray[index].path)
-  }
-
-  useEffect(() => {
-    pathsArray.forEach((item, index) => {
-      if ('/' + item.path === pathname) {
-        setCurrentTab(tabsArray[index].title)
-      }
-      if (item.path === '/') {
-        setCurrentTab(tabsArray[0].title)
-      }
-    })
-  }, [])
-
-  useEffect(() => {
-    if (typeof document === 'undefined') return
-
-    const html = document.querySelector('html') as HTMLElement
-    const captures = document.querySelectorAll(
-      '.glow-capture'
-    ) as NodeListOf<HTMLDivElement>
-    const defaultOverlay = document.querySelectorAll(
-      '.glow-overlay'
-    ) as NodeListOf<HTMLDivElement>
-
-    const observer = new MutationObserver((mutationsList) => {
-      for (const mutation of mutationsList) {
-        if (
-          mutation.type === 'attributes' &&
-          mutation.attributeName === 'class'
-        ) {
-          const theme = html.classList.contains('dark') ? 'dark' : 'light'
-          const glowColor = theme === 'light' ? 'black' : 'white'
-          defaultOverlay.forEach((overlay) => {
-            overlay.style.setProperty('--glow-color', glowColor)
-          })
-        }
-      }
-    })
-
-    observer.observe(html, { attributes: true })
-
-    captures.forEach((capture) => {
-      const clonedChild = capture.children[0].cloneNode(true)
-      const overlay = capture.querySelector('.glow-overlay') as HTMLElement
-
-      overlay.appendChild(clonedChild)
-
-      capture.addEventListener('mousemove', (event) => {
-        const { pageX, pageY } = event
-        const x = pageX - capture.offsetLeft
-        const y = pageY - capture.offsetTop
-
-        overlay.style.setProperty('--glow-x', `${x}px`)
-        overlay.style.setProperty('--glow-y', `${y}px`)
-        overlay.style.setProperty('--glow-opacity', '1')
-      })
-
-      capture.addEventListener('mouseleave', () => {
-        overlay.style.setProperty('--glow-opacity', '0')
-      })
-    })
-  }, [])
+  useGlowEffect()
+  SetTabFromURL({ pathsArray, tabsArray, setCurrentTab })
 
   return (
     <Tabs.Root
       value={currentTab}
-      onValueChange={(value) => setCurrentTab(value)}
+      onValueChange={setCurrentTab}
       className="relative glow-capture w-full"
     >
       <Tabs.List className="w-full flex justify-evenly gap-2 border-2 border-b-1 border-transparent">
         {tabsArray.map((tab, index) => (
-          <div key={tab.title} onClick={() => handleClick(tab, index)}>
-            <TabItem
-              value={tab.title}
-              title={tab.title}
-              IsSelected={currentTab === tab.title}
-            />
-            <div className="glow-overlay" />
-          </div>
+          <TabClickHandler
+            key={tab.title}
+            tab={tab}
+            index={index}
+            setCurrentTab={setCurrentTab}
+            path={pathsArray[index].path}
+          />
         ))}
       </Tabs.List>
     </Tabs.Root>
