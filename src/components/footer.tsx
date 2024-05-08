@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import WhiteLogo from '../../public/White-Logo.png'
@@ -8,7 +7,6 @@ export function Footer() {
   return (
     <div className="flex items-center gap-5 col-span-4 ml-2">
       <Link href="/" className="text-2xl font-extrabold text-white">
-        <Suspense fallback={<p>Carregando...</p>}>
           <picture>
             <source
               srcSet={WhiteLogo.src}
@@ -22,7 +20,6 @@ export function Footer() {
               height={300}
             />
           </picture>
-        </Suspense>
       </Link>
     </div>
   )
