@@ -35,6 +35,7 @@ export function Backlight({ tabsArray, pathsArray }: BacklightProps) {
             tab={tab}
             index={index}
             setCurrentTab={setCurrentTab}
+            isSelected={tab.title === currentTab}
             path={pathsArray[index].path}
           />
         ))}

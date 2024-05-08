@@ -18,8 +18,8 @@ export const useTabs = (): TabHook => {
 interface TabClickHandlerProps {
   tab: Tab
   path: string
-  index: number
-  currentTab: string
+  index: number;
+  isSelected: boolean
   setCurrentTab: (tab: string) => void
 }
 
@@ -27,9 +27,15 @@ export function TabClickHandler({
   tab,
   path,
   setCurrentTab,
-  currentTab={currentTab}
+  isSelected,
 }: TabClickHandlerProps) {
   const router = useRouter()
+
+  useEffect(() => {
+    if (isSelected) {
+      setCurrentTab(tab.title)
+    }
+  }, [isSelected, setCurrentTab, tab.title])
 
   function handleClick() {
     setCurrentTab(tab.title)
@@ -38,8 +44,7 @@ export function TabClickHandler({
 
   return (
     <div onClick={handleClick} className="cursor-pointer">
-      <TabItem value={tab.title} title={tab.title} isSelected={tab.title === currentTab}
- />
+      <TabItem value={tab.title} title={tab.title} isSelected={isSelected} />
       <div className="glow-overlay" />
     </div>
   )
