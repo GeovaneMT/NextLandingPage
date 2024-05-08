@@ -19,6 +19,7 @@ interface TabClickHandlerProps {
   tab: Tab
   path: string
   index: number
+  currentTab: string
   setCurrentTab: (tab: string) => void
 }
 
@@ -26,6 +27,7 @@ export function TabClickHandler({
   tab,
   path,
   setCurrentTab,
+  currentTab={currentTab}
 }: TabClickHandlerProps) {
   const router = useRouter()
 
@@ -36,7 +38,8 @@ export function TabClickHandler({
 
   return (
     <div onClick={handleClick} className="cursor-pointer">
-      <TabItem value={tab.title} title={tab.title} />
+      <TabItem value={tab.title} title={tab.title} isSelected={tab.title === currentTab}
+ />
       <div className="glow-overlay" />
     </div>
   )

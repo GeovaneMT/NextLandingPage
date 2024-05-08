@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 export interface TabItemProps {
   value: string
   title: string
-  IsSelected?: boolean
+  isSelected?: boolean
 }
-export function TabItem({ value, title, IsSelected = false }: TabItemProps) {
+export function TabItem({ value, title, isSelected = false }: TabItemProps) {
   return (
     <Tabs.Trigger
       value={value}
@@ -14,7 +14,7 @@ export function TabItem({ value, title, IsSelected = false }: TabItemProps) {
     >
       <span className="">{title}</span>{' '}
       {/*stiles aplied here work on all elements*/}
-      {IsSelected && (
+      {isSelected && (
         <motion.div
           layoutId="activeTab"
           className="absolute inset-x-0 h-[1.1px] dark:bg-gray-gray1 bg-grayDark-gray1 -bottom-5 rounded-full"
