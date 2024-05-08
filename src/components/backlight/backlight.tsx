@@ -1,7 +1,6 @@
 'use client'
 import * as Tabs from '@radix-ui/react-tabs'
-import { useGlowEffect, SetTabFromURL, useTabs } from './use-client'
-import { TabClickHandler } from './use-client'
+import { useGlowEffect, SetTabFromURL, useTabs, TabClickHandler } from './use-client'
 
 export interface Tab {
   title: string

@@ -2,7 +2,7 @@ import { Button } from '@/components/button'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
+  title: 'Portfólio',
 }
 
 export default function Portfolio() {
