@@ -10,7 +10,7 @@ title: 'Home',
 export default function Home() {
   return (
     <div className='flex flex-col gap-8'>
-    <div className='flex items-center'>
+    <div className='h-[200vh] flex items-center'>
       <HomeContent />
     </div>
     </div>
