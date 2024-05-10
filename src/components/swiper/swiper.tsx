@@ -11,7 +11,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules'
 interface ContentProps {
   children: React.ReactNode;
 }
-export function SwiperSlider({ contents }: { contents: React.ReactNode }) {
+export function SwiperSlider({ content1, content2, content3 }: { content1: React.ReactNode, content2: React.ReactNode, content3: React.ReactNode }) {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -35,8 +35,14 @@ export function SwiperSlider({ contents }: { contents: React.ReactNode }) {
       keyboard={true}
       modules={[Navigation, Pagination, Mousewheel, Keyboard]}
     >
-      <SwiperSlide className='bg-orange-500'>
-        {contents}          
+      <SwiperSlide className='bg-gray-gray3 dark:bg-grayDark-gray3 rounded-md p-4'>
+        {content1}        
+      </SwiperSlide>
+      <SwiperSlide className='bg-gray-gray3 dark:bg-grayDark-gray3 rounded-md p-4'>
+        {content2}        
+      </SwiperSlide>
+      <SwiperSlide className='bg-gray-gray3 dark:bg-grayDark-gray3 rounded-md p-4'>
+        {content3}        
       </SwiperSlide>
     </Swiper>
   )
