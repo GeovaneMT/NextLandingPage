@@ -25,7 +25,7 @@ export function SwiperSlider({ content1, content2, content3 }: { content1: React
 
   return (
     <Swiper 
-      className='mySwiper w-full h-full' 
+      className='mySwiper h-full' 
       slidesPerView={'auto'}
       spaceBetween={30}
       cssMode={true}

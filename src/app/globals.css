@@ -23,7 +23,7 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  //color: red;
+  color: white !important;
 }
 
 .swiper-slide {

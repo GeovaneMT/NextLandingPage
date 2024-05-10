@@ -3,7 +3,6 @@
 import { RevealList } from  'next-reveal'
 import { SwiperSlider } from '@/components/swiper/swiper'
 import Image from 'next/image'
-import { Button } from '@/components/button'
 
 export function HomeContent() {
 
@@ -16,49 +15,44 @@ export function HomeContent() {
       easing='ease-out' 
       distance='1rem' 
       reset={true}
+      className={'h-full'}
     >
-      <div className='flex flex-col gap-8'>
-        <div className='h-[50vh]'>
+      <div className='flex flex-col gap-8 h-full '>
+        <div className=' h-full'>
           <SwiperSlider 
             content1={
-              <>
-                <Button variant="ghost" title="Home" />
-                <Image src="/Gray-Logo.png" alt={''} width={300} height={300}/>
-              </>
+              <div className='flex h-full justify-center align-center'>
+                <Image className='object-contain' src="/Gray-Logo.png" alt={''} width={300} height={300}/>
+              </div>
             }
             content2={
-              <>
-                <Button variant="ghost" title="Home" />
-                <Image src="/Gray-Logo.png" alt={''} width={300} height={300}/>
-              </>
+              <div className='flex h-full justify-center align-center'>
+                <Image className='object-contain' src="/Gray-Logo.png" alt={''} width={300} height={300}/>
+              </div>
             }
             content3={
-              <>
-                <Button variant="ghost" title="Home" />
-                <Image src="/Gray-Logo.png" alt={''} width={300} height={300}/>
-              </>
+              <div className='flex h-full justify-center align-center'>
+                <Image className='object-contain' src="/Gray-Logo.png" alt={''} width={300} height={300}/>
+              </div>
             }
           />
         </div>
-        <div className='h-[50vh]'>
+        <div className='h-full'>
           <SwiperSlider 
             content1={
-              <>
-                <Button variant="ghost" title="Home" />
-                <Image src="/Gray-Logo.png" alt={''} width={300} height={300}/>
-              </>
+              <div className='flex h-full justify-center align-center'>
+                <Image className='object-contain' src="/Gray-Logo.png" alt={''} width={300} height={300}/>
+              </div>
             }
             content2={
-              <>
-                <Button variant="ghost" title="Home" />
-                <Image src="/Gray-Logo.png" alt={''} width={300} height={300}/>
-              </>
+              <div className='flex h-full justify-center align-center'>
+                <Image className='object-contain' src="/Gray-Logo.png" alt={''} width={300} height={300}/>
+              </div>
             }
             content3={
-              <>
-                <Button variant="ghost" title="Home" />
-                <Image src="/Gray-Logo.png" alt={''} width={300} height={300}/>
-              </>
+              <div className='flex h-full justify-center align-center'>
+                <Image className='object-contain' src="/Gray-Logo.png" alt={''} width={300} height={300}/>
+              </div>
             }
           />
         </div>
