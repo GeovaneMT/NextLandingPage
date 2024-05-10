@@ -20,3 +20,12 @@
 
   will-change: mask;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  //color: red;
+}
+
+.swiper-slide {
+  width: 60% !important;
+}

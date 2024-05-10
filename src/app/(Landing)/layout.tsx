@@ -12,7 +12,7 @@ export default function LandingPageLayout({
   return (
     <div className="min-h-screen w-full flex flex-col">
       <Header />
-      <main className="mx-auto max-w-[1600px] grid grid-cols-1 gap-5 px-8 py-8 flex-1 items-center">
+      <main className="max-w-[1600px] grid grid-cols-1 gap-5 px-8 py-8 flex-1 items-center">
         {children}
       </main>
       <Footer />
