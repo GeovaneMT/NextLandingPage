@@ -1,49 +1,73 @@
-'use client'
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useVelocity,
+  useAnimationFrame
+} from "framer-motion";
+import { wrap } from "@motionone/utils";
 
-import React, { useEffect, useState } from 'react'
-
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules'
-
-interface ContentProps {
-  children: React.ReactNode;
+interface ParallaxProps {
+  children: string;
+  baseVelocity: number;
 }
-export function SwiperSlider({ content1, content2, content3 }: { content1: React.ReactNode, content2: React.ReactNode, content3: React.ReactNode }) {
-  const [isMobile, setIsMobile] = useState(false)
 
-  useEffect(() => {
-    const checkIsMobile = () => {
-      const isMobileDevice = window.innerWidth <= 992
-      isMobileDevice && setIsMobile(true)
+export function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false
+  });
+
+  /**
+   * This is a magic wrapping for the length of the text - you
+   * have to replace for wrapping that works for you or dynamically
+   * calculate
+   */
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+
+  const directionFactor = useRef<number>(1);
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+    /**
+     * This is what changes the direction of the scroll once we
+     * switch scrolling directions.
+     */
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
     }
 
-    checkIsMobile()
-  }, [])
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
 
+    baseX.set(baseX.get() + moveBy);
+  });
+
+  /**
+   * The number of times to repeat the child text should be dynamically calculated
+   * based on the size of the text and viewport. Likewise, the x motion value is
+   * currently wrapped between -20 and -45% - this 25% is derived from the fact
+   * we have four children (100% / 4). This would also want deriving from the
+   * dynamically generated number of children.
+   */
   return (
-    <Swiper 
-      className='mySwiper h-full' 
-      slidesPerView={'auto'}
-      spaceBetween={30}
-      cssMode={true}
-      navigation={!isMobile}
-      pagination={false}
-      mousewheel={true}
-      keyboard={true}
-      modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-    >
-      <SwiperSlide className='bg-gray-gray3 dark:bg-grayDark-gray3 rounded-md p-4'>
-        {content1}        
-      </SwiperSlide>
-      <SwiperSlide className='bg-gray-gray3 dark:bg-grayDark-gray3 rounded-md p-4'>
-        {content2}        
-      </SwiperSlide>
-      <SwiperSlide className='bg-gray-gray3 dark:bg-grayDark-gray3 rounded-md p-4'>
-        {content3}        
-      </SwiperSlide>
-    </Swiper>
-  )
+    <div className="parallax">
+      <motion.div className="scroller h-max" style={{ x }}>
+        <span className="text-sm">{children} </span>
+        <span className="text-sm">{children} </span>
+        <span className="text-sm">{children} </span>
+        <span className="text-sm">{children} </span>
+      </motion.div>
+    </div>
+  );
 }
