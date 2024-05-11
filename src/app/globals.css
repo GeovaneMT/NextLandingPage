@@ -16,7 +16,9 @@
     var(--glow-color) 1%,
     transparent 50%
   );
-  transition: .4s mask ease, opacity .4s ease-in-out;
+  transition:
+    0.4s mask ease,
+    opacity 0.4s ease-in-out;
 
   will-change: mask;
 }
