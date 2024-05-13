@@ -19,7 +19,7 @@ export function TabItem({ value, title, isSelected }: TabItemProps) {
           animate={{ transform: 'scale(1)' }}
           transition={{ delay: 0.2 }}
           layoutId="activeTabItem"
-          className="absolute inset-x-0 h-[1.1px] dark:bg-gray-gray1 bg-grayDark-gray1 -bottom-5 rounded-full"
+          className="absolute inset-x-0 h-[1.1px] dark:bg-gray-gray1 bg-grayDark-gray1 -bottom-3 rounded-full"
         />
       )}
     </Tabs.Trigger>
