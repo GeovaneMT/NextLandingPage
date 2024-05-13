@@ -3,7 +3,6 @@ import { RevealListWrapper } from '@/components/RevealList'
 import { ParallaxText } from '@/components/ParallaxText'
 import { Slider } from '@/components/Slider/slider'
 import { TabsJobs } from '@/components/tabs'
-import { AccordionComponent } from '@/components/accordion'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -22,7 +21,7 @@ export default function Home() {
       className={''}
     >
       <div className="flex flex-col gap-8">
-        <div className='relative h-[80vh]'>
+        <div className='relative h-[calc(80vh-4rem)]'>
           <div className='flex flex-col justify-center w-full h-full pattern-dots pattern-grayDark-gray10 dark:pattern-gray-gray10 pattern-bg-transparent pattern-opacity-20 pattern-size-2'>
               <ParallaxText baseVelocity={-5}>Brands Not Scars</ParallaxText>
               <ParallaxText baseVelocity={5}>Brands Not Scars</ParallaxText>
@@ -38,7 +37,7 @@ export default function Home() {
             <p className='opacity-0'></p>
           </span>
         </div>
-        <div className='-mt-60 z-10'>
+        <div className='-mt-48 z-10 w-full p-8'>
           <TabsJobs 
             title1='Branding' 
             title2='Design' 
