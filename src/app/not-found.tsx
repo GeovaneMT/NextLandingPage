@@ -7,12 +7,14 @@ const NotFoundPage = () => {
         404 - Page Not Found
       </h1>
       <p className="text-lg text-gray-600 mb-8">
-        Oops! Looks like you're lost in the wilderness...
+        Oops! Looks like you're lost. That's why you should always folow the
+        path
       </p>
-      <Link href="/">
-        <a className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-          Go Home
-        </a>
+      <Link
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        href="/"
+      >
+        Go Home
       </Link>
     </div>
   )

@@ -4,6 +4,7 @@ import { TabItem } from './tabItem'
 import { Path, Tab } from './backlight'
 import { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 interface TabHook {
   currentTab: string
@@ -18,9 +19,44 @@ export const useTabs = (): TabHook => {
 interface TabClickHandlerProps {
   tab: Tab
   path: string
-  index: number;
+  index: number
   isSelected: boolean
   setCurrentTab: (tab: string) => void
+}
+interface MenuClickHandlerProps {
+  tab: Tab
+  path: string
+  index: number
+  isSelected: boolean
+  className: string
+  setCurrentTab: (tab: string) => void
+}
+
+export function MenuClickHandler({
+  tab,
+  path,
+  setCurrentTab,
+  isSelected,
+  className,
+}: MenuClickHandlerProps) {
+  const router = useRouter()
+
+  useEffect(() => {
+    if (isSelected) {
+      setCurrentTab(tab.title)
+    }
+  }, [isSelected, setCurrentTab, tab.title])
+
+  function handleClick() {
+    setCurrentTab(tab.title)
+    router.push(path)
+  }
+
+  return (
+    <div onClick={handleClick}>
+      <DropdownMenu.Item className={className}>{tab.title}</DropdownMenu.Item>
+    </div>
+  )
 }
 
 export function TabClickHandler({

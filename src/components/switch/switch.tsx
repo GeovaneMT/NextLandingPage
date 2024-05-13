@@ -2,8 +2,7 @@ import React from 'react'
 import { SwitchRoot } from './switch-root'
 
 export function SwitchTheme() {
-
-  return(
+  return (
     <form className="cursor-pointer">
       <div className="flex items-center">
         <label

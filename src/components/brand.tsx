@@ -5,8 +5,7 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 
-export function Brand({isIcon}: {isIcon: boolean}) {
-  
+export function Brand({ isIcon }: { isIcon: boolean }) {
   const [image, setImage] = useState<string | null>(null)
   const [icon, setIcon] = useState<string | null>(null)
   const { theme } = useTheme()

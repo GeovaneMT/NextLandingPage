@@ -7,8 +7,6 @@ export default function LandingPageLayout({
 }: {
   children: ReactNode
 }) {
-
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
