@@ -16,7 +16,7 @@ function AccordionItem({ value, children }: AccordionItemProps) {
   return (
     <Accordion.Item 
       value={value} 
-      className='mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b'
+      className='w-full mt-px overflow-hidden first:mt-0 first:rounded-t last:rounded-b'
     >
       {children}
     </Accordion.Item>
@@ -34,11 +34,11 @@ function AccordionHeader({ children }: AccordionProps) {
 function AccordionTrigger({ children }: AccordionProps) {
   return (
     <Accordion.Trigger
-      className='text-violet-violet11 shadow-mauve-mauve6 hover:bg-mauve-mauve2 group flex h-[45px] flex-1 cursor-default items-center justify-between bg-white px-5 text-[15px] leading-none shadow-[0_1px_0] outline-none'
+      className='group flex h-[45px] flex-1 cursor-default items-center justify-between px-5 text-[15px] leading-none shadow-[0_1px_0] outline-none bg-blackA-blackA9 dark:bg-whiteA-whiteA9 text-grayDark-gray12 dark:text-gray-gray12 shadow-grayDark-gray12 dark:shadow-gray-gray12 hover:bg-blackA-blackA12 dark:hover:bg-whiteA-whiteA8'
     >
       {children}
       <ChevronDownIcon
-        className="text-violet-violet10 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transfoduration-300 group-data-[state=open]:rotate-180"
+        className="text-grayDark-gray11 dark:text-gray-gray11 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transfoduration-300 group-data-[state=open]:rotate-180"
         aria-hidden
       />
     </Accordion.Trigger >
@@ -48,7 +48,7 @@ function AccordionTrigger({ children }: AccordionProps) {
 function AccordionContent({ children }: AccordionProps) {
   return (
     <Accordion.Content
-      className='text-mauve-mauve11 bg-mauve-mauve2 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]'
+      className='text-grayDark-gray10 dark:text-gray-gray10 bg-grayDark-gray12 dark:bg-gray-gray12 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]'
     >
       <div
         className="py-[15px] px-5"
@@ -62,9 +62,10 @@ function AccordionContent({ children }: AccordionProps) {
 export function AccordionComponent() {
   return (
     <Accordion.Root
-      className="bg-mauve-mauve6 w-[300px] rounded-md shadow-[0_2px_10px] shadow-black/5"
+      className="w-[50vw] bg-gray-gray6 dark:bg-grayDark-gray6 shadow-black/5 rounded-md shadow-[0_2px_10px]"
       type="single"
       defaultValue="item-1"
+      orientation="horizontal"
       collapsible
     >
       <AccordionItem value="Branding">
