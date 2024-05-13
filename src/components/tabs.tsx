@@ -1,7 +1,9 @@
 'use client'
 
 import React from 'react';
-import * as Tabs from '@radix-ui/react-tabs';
+import * as Tabs from '@radix-ui/react-tabs'
+import { motion } from 'framer-motion'
+
 
 interface TabsTriggerProps {
   value: string;
@@ -23,19 +25,24 @@ interface TabsJobsProps {
 
 function TabsTrigger({ value, children }: TabsTriggerProps) {
   return (
-    <Tabs.Trigger
-      value={value} 
-      className='flex flex-1 items-center justify-center text-[15px] leading-none px-5 h-[45px] select-none rounded-full data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-gray-gray1 dark:data-[state=active]:text-grayDark-gray1 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] outline-none cursor-default bg-transparent dark:bg-transparent hover:cursor-pointer dark:text-gray-gray1 text-grayDark-gray1'
+    <motion.div 
+      animate={{ transform: 'scale(1)'}}
+      transition={{ delay: .2 }} 
     >
-      {children}
-    </Tabs.Trigger >
+      <Tabs.Trigger
+        value={value}
+        className='flex flex-1 items-center justify-center text-[15px] leading-none px-5 h-[45px] select-none rounded-full data-[state=active]:bg-black dark:data-[state=active]:bg-white data-[state=active]:text-gray-gray1 dark:data-[state=active]:text-grayDark-gray1 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] outline-none cursor-default bg-transparent dark:bg-transparent hover:cursor-pointer dark:text-gray-gray1 text-grayDark-gray1'
+      >
+        {children}
+      </Tabs.Trigger >
+    </motion.div>
   )
 }
 function TabsList({ children }: TabsProps) {
   return (
     <Tabs.List
       aria-label="Manage your account"
-      className="shrink-0 flex mx-auto p-2 w-min border-2 rounded-full border-gray-gray4" 
+      className="shrink-0 flex mx-auto p-2 w-min border-2 rounded-full border-gray-gray4 dark:border-grayDark-gray4"  
     >
       {children}
     </Tabs.List >

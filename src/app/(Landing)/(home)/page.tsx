@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 import { RevealListWrapper } from '@/components/RevealList'
 import { ParallaxText } from '@/components/ParallaxText'
-import { Slider } from '@/components/Slider/slider'
 import { TabsJobs } from '@/components/tabs'
+
 
 export const metadata: Metadata = {
   title: 'Home',
