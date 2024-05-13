@@ -3,6 +3,7 @@
 import * as Switch from '@radix-ui/react-switch'
 import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
+import { LuSunMoon } from "react-icons/lu";
 
 export function SwitchRoot() {
   const { setTheme, resolvedTheme, systemTheme } = useTheme()
@@ -28,7 +29,7 @@ export function SwitchRoot() {
     <Switch.Root
       onCheckedChange={toggleTheme}
       checked={checked ?? false}
-      className={switchRootClassNames}
+      className={`cursor-pointer ${switchRootClassNames}`}
       id="Theme-Switch"
       style={
         {
@@ -38,11 +39,16 @@ export function SwitchRoot() {
     >
       {!isLoading && (
         <Switch.Thumb
-          className={`${thumbClassNames} cursor-pointer  transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]`}
-        />
+          className={`${thumbClassNames} flex items-center justify-center transition-transform duration-100 translate-x-0.5 will-change-transform data-[state=checked]:translate-x-[19px]`}
+        >
+          <LuSunMoon size={12} color='black' className='opacity-35'/>
+        </Switch.Thumb>
       )}
       {isLoading && (
-        <Switch.Thumb className={`${thumbClassNames} translate-x-[11px]`} />
+        <Switch.Thumb className={`${thumbClassNames} translate-x-[11px] flex items-center justify-center`} 
+        >
+          <LuSunMoon size={12} color='black' className='opacity-50'/>
+        </Switch.Thumb>
       )}
     </Switch.Root>
   )
