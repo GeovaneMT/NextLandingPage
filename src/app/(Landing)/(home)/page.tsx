@@ -22,11 +22,9 @@ export default function Home() {
     >
       <div className="flex flex-col gap-8">
         <div className='relative h-[80vh]'>
-          <div className='flex flex-col justify-center w-full h-full pattern-dots pattern-black pattern-bg-transparent pattern-opacity-10 pattern-size-1'>
-            <div className="">
+          <div className='flex flex-col justify-center w-full h-full pattern-dots pattern-black pattern-bg-transparent pattern-opacity-10 pattern-size-2'>
               <ParallaxText baseVelocity={-5}>Brands Not Scars</ParallaxText>
               <ParallaxText baseVelocity={5}>Brands Not Scars</ParallaxText>
-            </div>
           </div>
           <span className='absolute inset-0 flex flex-col justify-around items-center p-8'>
             <h1 className='text-4xl font-bold uppercase w-full text-center'>
@@ -36,7 +34,9 @@ export default function Home() {
                 <p> Para marcas, produtos e ideias.</p>
             </h1>
             <p className='opacity-0'></p>
-            <AccordionComponent />
+            <div className='flex gap-4'>
+              <AccordionComponent />
+            </div>
           </span>
         </div>
         <div className="overflow-hidden">
