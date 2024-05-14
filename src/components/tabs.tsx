@@ -5,6 +5,7 @@ import * as Tabs from '@radix-ui/react-tabs'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 interface TabsTriggerProps {
   value: string
@@ -44,6 +45,7 @@ function TabsTrigger({
   children,
   isSelectedTab = false,
 }: TabsTriggerProps) {
+  const router = useRouter()
   return (
     <Tabs.Trigger
       value={value}
