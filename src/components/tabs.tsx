@@ -4,6 +4,7 @@ import React from 'react'
 import * as Tabs from '@radix-ui/react-tabs'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface TabsTriggerProps {
   value: string
@@ -46,7 +47,7 @@ function TabsTrigger({
   return (
     <Tabs.Trigger
       value={value}
-      className="relative w-full cursor-pointer select-none rounded-full py-1 px-2 md:py-2 md:px-4 dark:data-[state=active]:text-grayDark-gray1 data-[state=active]:text-gray-gray1"
+      className="relative select-none rounded-full dark:data-[state=active]:text-grayDark-gray1 data-[state=active]:text-gray-gray1"
     >
       {isSelectedTab && (
         <motion.section
@@ -54,17 +55,22 @@ function TabsTrigger({
           className="absolute -z-10 inset-0 bg-grayDark-gray1  dark:bg-gray-gray1 rounded-full"
         />
       )}
-        <div className='flex items-center justify-center gap-2 md:gap-4 w-full '>
+        <Link href='#content' className='h-full py-1 px-2 md:py-2 md:px-4 flex items-center justify-center gap-2 md:gap-4 w-full '>
           {children}
-        </div>
+        </Link>
     </Tabs.Trigger>
   )
 }
 
 function TabsContent({ children, value }: TabsTriggerProps) {
   return (
-    <Tabs.Content value={value} className="grow min-h-[15vh] p-5  outline-none">
-      {children}
+    <Tabs.Content 
+      value={value} 
+      className="grow min-h-[15vh] p-5 outline-none mt-[18vh]"
+    >
+      <div id='content'>
+        {children}
+      </div>
     </Tabs.Content>
   )
 }

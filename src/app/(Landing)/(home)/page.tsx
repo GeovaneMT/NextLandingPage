@@ -20,7 +20,6 @@ export default function Home() {
       easing="ease-out"
       distance="1rem"
       reset={true}
-      className={''}
     >
       <div className="flex flex-col gap-8">
         <div className="relative h-[calc(90vh-4rem)]">
