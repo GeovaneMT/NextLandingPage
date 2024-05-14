@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { TabsJobs } from '@/components/tabs'
 import { ParallaxText } from '@/components/ParallaxText'
 import { RevealListWrapper } from '@/components/RevealList'
-import { LuBox, LuPalette, LuHelpingHand} from "react-icons/lu";
+import { LuBox, LuPalette, LuHelpingHand, LuLightbulb} from "react-icons/lu";
 import { TypeWriter } from '@/components/typewriter';
 
 
@@ -30,11 +30,16 @@ export default function Home() {
           </div>
           <div className="absolute inset-0 grid grid-rows-5 justify-center items-center px-8">
             <span className="row-span-2 font-bold uppercase w-full text-center">
-              <h1 className="text-black dark:text-white md:text-4xl" >
+              <h1 className="text-black dark:text-white sm:text-3xl md:text-4xl" >
                 <TypeWriter text='Soluções para sua empresa' />
               </h1>
-              <h2 className='text-sm md:text-3xl' > 
-                Para marcas, produtos e ideias.
+              <h2 className='items-center justify-center gap-2 sm:gap-6 md:gap-8 text-xs flex sm:text-xl md:text-2xl' > 
+               <p className='flex items-center justify-center gap-1 sm:gap-2'>Para marcas<LuPalette />
+               </p>
+               <p className='flex items-center justify-center gap-1 sm:gap-2'>produtos<LuBox />
+               </p>
+               <p className='flex items-center justify-center gap-1 sm:gap-2'>e ideias<LuLightbulb />
+               </p>
               </h2>
             </span>
           </div>
@@ -46,7 +51,7 @@ export default function Home() {
             title3="Acessoria"
            icon1={<LuPalette />}
            icon2={<LuBox />}
-           icon3={<LuHelpingHand />}
+           icon3={<LuLightbulb />}
             content1="Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas."
             content2="Oferecemos soluções de design para empresas e produtos. Vamos além da bela embalagem,pensamos em toda a experiência do consumidor."
             content3="Criamos e executamos a estratégia de comunicação para empresas que buscam aumentar a visibilidade, estabelecer relacionamentos e reforçar a imagem da sua marca no mercado empresarial."
