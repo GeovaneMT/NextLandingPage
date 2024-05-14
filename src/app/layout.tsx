@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html className={` ${inter.variable}`} lang="pt" suppressHydrationWarning>
-      <body className="bg-gray-gray1 dark:bg-grayDark-gray1 dark:text-gray-gray10 text-grayDark-gray10 antialiased">
+      <body className="bg-gray-gray1 dark:bg-grayDark-gray1 dark:text-gray-gray8 text-grayDark-gray8 antialiased">
         <ThemeProvider attribute="class" defaultTheme="system">
           {children}
         </ThemeProvider>

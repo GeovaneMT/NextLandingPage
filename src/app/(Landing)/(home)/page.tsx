@@ -1,8 +1,10 @@
 import { Metadata } from 'next'
-import { RevealListWrapper } from '@/components/RevealList'
-import { ParallaxText } from '@/components/ParallaxText'
 import { TabsJobs } from '@/components/tabs'
-import { LuPalette } from 'react-icons/lu'
+import { ParallaxText } from '@/components/ParallaxText'
+import { RevealListWrapper } from '@/components/RevealList'
+import { LuBox, LuPalette, LuHelpingHand} from "react-icons/lu";
+
+
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -41,10 +43,13 @@ export default function Home() {
           <TabsJobs
             title1="Branding"
             title2="Design"
-            title3="teste"
+            title3="Acessoria"
+           icon1={<LuPalette />}
+           icon2={<LuBox />}
+           icon3={<LuHelpingHand />}
             content1="Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas."
             content2="Oferecemos soluções de design para empresas e produtos. Vamos além da bela embalagem,pensamos em toda a experiência do consumidor."
-            content3="Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas."
+            content3="Criamos e executamos a estratégia de comunicação para empresas que buscam aumentar a visibilidade, estabelecer relacionamentos e reforçar a imagem da sua marca no mercado empresarial."
           />
         </div>
       </div>

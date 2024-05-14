@@ -19,9 +19,23 @@ interface TabsJobsProps {
   title1: string
   title2: string
   title3: string
+  icon1: React.ReactNode
+  icon2: React.ReactNode
+  icon3: React.ReactNode
   content1: React.ReactNode
   content2: React.ReactNode
   content3: React.ReactNode
+}
+
+function TabsList({ children }: TabsProps) {
+  return (
+    <Tabs.List
+      aria-label="Manage your account"
+      className="backdrop-blur-[.8px] text-xs md:text-base shrink-0 flex mx-auto p-2 w-full md:w-max gap-2 md:gap-4 border bg-gray-gray4/5 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
+    >
+      {children}
+    </Tabs.List>
+  )
 }
 
 function TabsTrigger({
@@ -32,28 +46,21 @@ function TabsTrigger({
   return (
     <Tabs.Trigger
       value={value}
-      className="relative transition-all p-2 w-24 select-none rounded-full cursor-pointer dark:data-[state=active]:text-grayDark-gray1 data-[state=active]:text-gray-gray1"
+      className="relative w-full cursor-pointer select-none rounded-full py-1 px-2 md:py-2 md:px-4 dark:data-[state=active]:text-grayDark-gray1 data-[state=active]:text-gray-gray1"
     >
       {isSelectedTab && (
         <motion.section
           layoutId="activeTab"
-          className="absolute -z-10 inset-0 bg-gray-gray10 dark:bg-grayDark-gray10 rounded-full outline-none border-none shadow-none"
+          className="absolute -z-10 inset-0 bg-grayDark-gray1  dark:bg-gray-gray1 rounded-full"
         />
       )}
-      {children}
+        <div className='flex items-center justify-center gap-4 w-full '>
+          {children}
+        </div>
     </Tabs.Trigger>
   )
 }
-function TabsList({ children }: TabsProps) {
-  return (
-    <Tabs.List
-      aria-label="Manage your account"
-      className=" shrink-0 flex mx-auto p-2 w-min border-2 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
-    >
-      {children}
-    </Tabs.List>
-  )
-}
+
 function TabsContent({ children, value }: TabsTriggerProps) {
   return (
     <Tabs.Content value={value} className="grow min-h-[15vh] p-5  outline-none">
@@ -65,6 +72,9 @@ export function TabsJobs({
   title1,
   title2,
   title3,
+  icon1,
+  icon2,
+  icon3,
   content1,
   content2,
   content3,
@@ -80,13 +90,13 @@ export function TabsJobs({
     >
       <TabsList>
         <TabsTrigger value={title1} isSelectedTab={IscurrentTab === title1}>
-          {title1}
+          {title1}{icon1}
         </TabsTrigger>
         <TabsTrigger value={title2} isSelectedTab={IscurrentTab === title2}>
-          {title2}
+          {title2}{icon2}
         </TabsTrigger>
         <TabsTrigger value={title3} isSelectedTab={IscurrentTab === title3}>
-          {title3}
+          {title3}{icon3}
         </TabsTrigger>
       </TabsList>
       <TabsContent value={title1}>{content1}</TabsContent>
