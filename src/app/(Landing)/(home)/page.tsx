@@ -23,12 +23,12 @@ export default function Home() {
       className={''}
     >
       <div className="flex flex-col gap-8">
-        <div className="relative h-[calc(80vh-4rem)]">
+        <div className="relative h-[calc(90vh-4rem)]">
           <div className="flex flex-col justify-center w-full h-full pattern-dots pattern-grayDark-gray10 dark:pattern-gray-gray10 pattern-bg-transparent pattern-opacity-20 pattern-size-2">
             <ParallaxText baseVelocity={-5}>Brands Not Scars</ParallaxText>
             <ParallaxText baseVelocity={5}>Brands Not Scars</ParallaxText>
           </div>
-          <div className="absolute inset-0 grid grid-rows-5 justify-center items-center px-8">
+          <div className="absolute inset-0 grid grid-rows-6 justify-center items-center px-8">
             <span className="row-span-2 font-bold uppercase w-full text-center">
               <h1 className="text-black dark:text-white sm:text-3xl md:text-4xl" >
                 <TypeWriter text='Soluções para sua empresa' />
@@ -44,14 +44,14 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="-mt-44 z-10 w-full px-8">
+        <div className="-mt-44">
           <TabsJobs
             title1="Branding"
             title2="Design"
             title3="Acessoria"
-           icon1={<LuPalette />}
-           icon2={<LuBox />}
-           icon3={<LuLightbulb />}
+            icon1={<LuPalette />}
+            icon2={<LuBox />}
+            icon3={<LuLightbulb />}
             content1="Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas."
             content2="Oferecemos soluções de design para empresas e produtos. Vamos além da bela embalagem,pensamos em toda a experiência do consumidor."
             content3="Criamos e executamos a estratégia de comunicação para empresas que buscam aumentar a visibilidade, estabelecer relacionamentos e reforçar a imagem da sua marca no mercado empresarial."
