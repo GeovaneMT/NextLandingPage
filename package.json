@@ -32,9 +32,11 @@
     "next": "14.2.3",
     "next-reveal": "^1.0.6",
     "next-themes": "^0.3.0",
+    "nextjs-simple-typewriter": "^5.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
+    "react-simple-typewriter": "^5.0.1",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
     "zod": "^3.23.6"

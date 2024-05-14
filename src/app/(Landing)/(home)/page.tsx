@@ -3,7 +3,7 @@ import { TabsJobs } from '@/components/tabs'
 import { ParallaxText } from '@/components/ParallaxText'
 import { RevealListWrapper } from '@/components/RevealList'
 import { LuBox, LuPalette, LuHelpingHand} from "react-icons/lu";
-
+import { TypeWriter } from '@/components/typewriter';
 
 
 export const metadata: Metadata = {
@@ -28,16 +28,16 @@ export default function Home() {
             <ParallaxText baseVelocity={-5}>Brands Not Scars</ParallaxText>
             <ParallaxText baseVelocity={5}>Brands Not Scars</ParallaxText>
           </div>
-          <span className="absolute inset-0 flex flex-col justify-around items-center px-8">
-            <h1 className="md:text-4xl font-bold uppercase w-full text-center">
-              <span className="text-black dark:text-white">
-                Soluções para sua empresa.
-              </span>
-              <p> Para marcas, produtos e ideias.</p>
-            </h1>
-            <p className="opacity-0"></p>
-            <p className="opacity-0"></p>
-          </span>
+          <div className="absolute inset-0 grid grid-rows-5 justify-center items-center px-8">
+            <span className="row-span-2 font-bold uppercase w-full text-center">
+              <h1 className="text-black dark:text-white md:text-4xl" >
+                <TypeWriter text='Soluções para sua empresa' />
+              </h1>
+              <h2 className='text-sm md:text-3xl' > 
+                Para marcas, produtos e ideias.
+              </h2>
+            </span>
+          </div>
         </div>
         <div className="-mt-48 z-10 w-full px-8">
           <TabsJobs
