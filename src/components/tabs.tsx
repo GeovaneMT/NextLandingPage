@@ -48,7 +48,7 @@ function TabsList({ children }: TabsProps) {
   return (
     <Tabs.List
       aria-label="Manage your account"
-      className="shrink-0 flex mx-auto p-2 w-min border-2 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
+      className=" shrink-0 flex mx-auto p-2 w-min border-2 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
     >
       {children}
     </Tabs.List>
