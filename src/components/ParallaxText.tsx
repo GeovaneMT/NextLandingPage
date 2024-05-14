@@ -34,7 +34,7 @@ export function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
    * have to replace for wrapping that works for you or dynamically
    * calculate
    */
-  const x = useTransform(baseX, (v) => `${wrap(-20, -40, v)}%`)
+  const x = useTransform(baseX, (v) => `${wrap(-20, -40.2, v)}%`)
 
   const directionFactor = useRef<number>(1)
   useAnimationFrame((t, delta) => {
@@ -64,7 +64,7 @@ export function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
    */
   return (
     <div className="parallax">
-      <motion.div className="scroller h-max" style={{ x }}>
+      <motion.div className="scroller h-max gap-8" style={{ x }}>
         <span className="text-5xl">{children} </span>
         <span className="text-5xl">{children} </span>
         <span className="text-5xl">{children} </span>
