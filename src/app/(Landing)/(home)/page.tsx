@@ -44,7 +44,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="-mt-48 z-10 w-full px-8">
+        <div className="-mt-44 z-10 w-full px-8">
           <TabsJobs
             title1="Branding"
             title2="Design"
