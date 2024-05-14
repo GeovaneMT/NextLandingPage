@@ -38,7 +38,7 @@ export const Menu = ({ tabsArray, pathsArray }: MenuProps) => {
           sideOffset={5}
         >
           {tabsArray.map((tab, index) => (
-            <>
+            <React.Fragment key={tab.title}>
               <MenuClickHandler
                 className="group text-[13px] leading-none rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px] select-none outline-none data-[disabled]:text-gray-gray8 data-[disabled]:pointer-events-none data-[highlighted]:bg-grayDark-gray11 dark:data-[highlighted]:bg-gray-gray11"
                 key={tab.title}
@@ -48,8 +48,8 @@ export const Menu = ({ tabsArray, pathsArray }: MenuProps) => {
                 isSelected={tab.title === currentTab}
                 path={pathsArray[index].path}
               />
-              <DropdownMenu.Separator className="h-[1px] bg-gray-gray7 dark:bg-grayDark-gray7 m-[5px]" />
-            </>
+              <DropdownMenu.Separator key={`separator-${index}`} className="h-[1px] bg-gray-gray7 dark:bg-grayDark-gray7 m-[5px]" />
+            </React.Fragment>
           ))}
 
           <DropdownMenu.Arrow className="fill-gray-gray4 dark:fill-grayDark-gray4" />
