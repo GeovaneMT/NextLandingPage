@@ -31,7 +31,7 @@ function TabsList({ children }: TabsProps) {
   return (
     <Tabs.List
       aria-label="Manage your account"
-      className="backdrop-blur-[.8px] text-xs md:text-base shrink-0 flex mx-auto p-2 w-full md:w-max gap-2 md:gap-4 border bg-gray-gray4/5 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
+      className="backdrop-blur-[.8px] text-xs md:text-base shrink-0 flex mx-auto p-2 w-full md:w-max md:gap-4 border bg-gray-gray4/5 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
     >
       {children}
     </Tabs.List>
@@ -54,7 +54,7 @@ function TabsTrigger({
           className="absolute -z-10 inset-0 bg-grayDark-gray1  dark:bg-gray-gray1 rounded-full"
         />
       )}
-        <div className='flex items-center justify-center gap-4 w-full '>
+        <div className='flex items-center justify-center gap-2 md:gap-4 w-full '>
           {children}
         </div>
     </Tabs.Trigger>
