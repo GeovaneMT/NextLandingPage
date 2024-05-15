@@ -67,10 +67,10 @@ function TabsContent({ children, value }: TabsTriggerProps) {
   return (
     <Tabs.Content 
       value={value} 
-      className="grow min-h-[50vh] p-5 mt-[18vh] border-2 border-gray-gray4 dark:border-grayDark-gray4 rounded-xl"
+      className="grow min-h-[calc(70vh-4rem)] p-5 mt-[18vh] border-2 border-gray-gray4 dark:border-grayDark-gray4 rounded-xl"
     > 
-        <div className='flex flex-col gap-4 h-[calc(50vh-2rem)]'>
-          <div className='h-full text-justify'>
+        <div className='flex flex-col gap-4 h-[calc(70vh-4rem)]'>
+          <div className='flex flex-col justify-evenly h-full text-justify'>
             {children}
           </div>
           <Link href='https://wa.me/5511966019898' target='_blank' className='self-center'>

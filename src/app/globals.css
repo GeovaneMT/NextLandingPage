@@ -58,16 +58,17 @@
 
 
 .embla {
-  width: 100%;
-  margin: auto;
-  --slide-height: 19rem;
+  width: calc(100% + 2.4rem);
+  margin: 0 0 0 -1.2rem;
+  --slide-height: 100%;
   --slide-spacing: 1rem;
-  --slide-size: 80%;
+  --slide-size: 60%;
 }
 .embla__viewport {
   overflow: hidden;
 }
 .embla__container {
+  height: 20vh;
   backface-visibility: hidden;
   display: flex;
   touch-action: pan-y pinch-zoom;
