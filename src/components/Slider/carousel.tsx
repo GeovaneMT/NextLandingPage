@@ -73,7 +73,7 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number">
-                <span>{index + 1}</span>
+                <span>Foto {index + 1}</span>
               </div>
             </div>
           ))}
