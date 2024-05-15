@@ -82,7 +82,6 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
               }
             })
           }
-
           const translate = diffToTarget * (-1 * tweenFactor.current) * 100
           const tweenNode = tweenNodes.current[slideIndex]
           tweenNode.style.transform = `translateX(${translate}%)`
