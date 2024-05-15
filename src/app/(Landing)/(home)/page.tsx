@@ -69,11 +69,34 @@ export default function Home() {
               icon1={<LuPalette />}
               icon2={<LuBox />}
               icon3={<LuLightbulb />}
-              content1={<p>Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas.</p>}
-              content2={<p>Oferecemos soluções de design para empresas e produtos. Vamos além da bela embalagem,pensamos em toda a experiência do consumidor.</p>}
-              content3={<p>Criamos e executamos a estratégia de comunicação para empresas que buscam aumentar a visibilidade, estabelecer relacionamentos e reforçar a imagem da sua marca no mercado empresarial.</p>}
+              content1={
+                <>
+
+                  <p>Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas.</p>
+
+                  <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+
+                </>
+              }
+              content2={
+                <>
+              
+                  <p>Oferecemos soluções de design para empresas e produtos. Vamos além da bela embalagem,pensamos em toda a experiência do consumidor.</p>
+
+                  <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+
+                </>
+              }
+              content3={
+                <>
+
+                  <p>Criamos e executamos a estratégia de comunicação para empresas que buscam aumentar a visibilidade, estabelecer relacionamentos e reforçar a imagem da sua marca no mercado empresarial.</p>
+
+                  <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+
+                </>
+              }
             />
-            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
     </RevealListWrapper>
   )
