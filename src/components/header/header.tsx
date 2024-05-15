@@ -7,7 +7,7 @@ import { tabsArray, pathsArray } from './nav-data'
 
 export function Header() {
   return (
-    <div className="relative h-[10vh] px-8 py-4 grid grid-cols-6 items-center justify-between border-b-2 bg-gray-gray1 dark:bg-black border-gray-gray7 dark:border-grayDark-gray1 rounded-md w-full shadow-lg shadow-gray-gray7 dark:shadow-grayDark-gray1 ">
+    <div className="relative h-[10vh] px-8 py-4 grid grid-cols-6 items-center justify-between border-b-2 bg-gray-gray1 dark:bg-black border-gray-gray7 dark:border-grayDark-gray3 rounded-md w-full shadow-lg shadow-gray-gray7 dark:shadow-grayDark-gray3 ">
       <div className="items-center gap-4 flex md:hidden col-span-1">
         <Menu tabsArray={tabsArray} pathsArray={pathsArray} />
       </div>

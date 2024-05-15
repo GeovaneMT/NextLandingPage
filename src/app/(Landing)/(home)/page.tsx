@@ -53,7 +53,7 @@ export default function Home() {
               </RevealListWrapper>
             </div>
       </div>
-      <div className="-mt-44">
+      <div id='content' className="-mt-72 pt-24 mb-[50vh]">
             <TabsJobs
               title1="Branding"
               title2="Design"

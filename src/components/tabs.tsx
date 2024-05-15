@@ -32,11 +32,10 @@ interface TabsJobsProps {
 function TabsList({ children }: TabsProps) {
   return (
     <Tabs.List
-      id='content'
       aria-label="Manage your account"
       className="w-max backdrop-blur-[.8px] text-xs md:text-base shrink-0 flex mx-auto p-2 md:w-max md:gap-4 border bg-gray-gray4/5 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
     >
-      {children}
+        {children}
     </Tabs.List>
   )
 }
