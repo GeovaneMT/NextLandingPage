@@ -2,8 +2,11 @@ import { Metadata } from 'next'
 import { TabsJobs } from '@/components/tabs'
 import { ParallaxText } from '@/components/parallax-text'
 import { RevealListWrapper } from '@/components/reveal-list'
-import { LuBox, LuPalette, LuLightbulb} from "react-icons/lu";
-import { TypeWriter } from '@/components/typewriter';
+import { LuBox, LuPalette, LuLightbulb} from "react-icons/lu"
+import { TypeWriter } from '@/components/typewriter'
+import { EmblaCarousel } from '@/components/Slider/carousel'
+import { EmblaOptionsType } from 'embla-carousel'
+
 
 
 export const metadata: Metadata = {
@@ -11,6 +14,11 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
+
+  const OPTIONS: EmblaOptionsType = { loop: true }
+  const SLIDE_COUNT = 8
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
   return (
     <RevealListWrapper
       delay={0}
@@ -65,6 +73,7 @@ export default function Home() {
               content2={<p>Oferecemos soluções de design para empresas e produtos. Vamos além da bela embalagem,pensamos em toda a experiência do consumidor.</p>}
               content3={<p>Criamos e executamos a estratégia de comunicação para empresas que buscam aumentar a visibilidade, estabelecer relacionamentos e reforçar a imagem da sua marca no mercado empresarial.</p>}
             />
+            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
     </RevealListWrapper>
   )
