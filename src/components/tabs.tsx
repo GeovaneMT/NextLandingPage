@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import * as Tabs from '@radix-ui/react-tabs'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { Button } from './button'
+import { motion } from 'framer-motion'
+import * as Tabs from '@radix-ui/react-tabs'
 
 interface TabsTriggerProps {
   value: string
@@ -32,6 +32,7 @@ interface TabsJobsProps {
 function TabsList({ children }: TabsProps) {
   return (
     <Tabs.List
+      id='content'
       aria-label="Manage your account"
       className="w-max backdrop-blur-[.8px] text-xs md:text-base shrink-0 flex mx-auto p-2 md:w-max md:gap-4 border bg-gray-gray4/5 rounded-full border-gray-gray4 dark:border-grayDark-gray4"
     >
@@ -45,7 +46,6 @@ function TabsTrigger({
   children,
   isSelectedTab = false,
 }: TabsTriggerProps) {
-  const router = useRouter()
   return (
     <Tabs.Trigger
       value={value}
@@ -68,11 +68,16 @@ function TabsContent({ children, value }: TabsTriggerProps) {
   return (
     <Tabs.Content 
       value={value} 
-      className="grow min-h-[15vh] p-5 outline-none mt-[18vh]"
-    >
-      <div id='content'>
-        {children}
-      </div>
+      className="grow min-h-[50vh] p-5 mt-[18vh] border-2 border-gray-gray4 dark:border-grayDark-gray4 rounded-xl"
+    > 
+        <div className='flex flex-col gap-4 h-[calc(50vh-2rem)]'>
+          <div className='h-full text-justify'>
+            {children}
+          </div>
+          <Link href='https://wa.me/5511966019898' target='_blank' className='self-center'>
+            <Button variant="outline" title="Entre em Contato" />
+          </Link>
+        </div>
     </Tabs.Content>
   )
 }

@@ -3,17 +3,16 @@ import { tv, VariantProps } from 'tailwind-variants'
 
 const button = tv({
   base: [
-    'rounded-lg px-4 py-2 text-sm font-semibold outline-none shadow-sm',
-    'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-500',
-    'active:opacity-80',
+    'rounded-full px-4 py-2 text-sm font-semibold outline-none shadow-sm',
+    'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-gray7',
+    'active:opacity-80 w-max',
   ],
 
   variants: {
     variant: {
-      primary: 'bg-violet-600 text-black hover:bg-violet-700',
-      ghost:
-        'rounded-md px-2 hover:bg-zinc-900 shadow-none hover:text-orange-600',
-      outline: 'border border-zinc-700 text-zinc-300 hover:bg-zinc-50',
+      primary: 'bg-orange-600 hover:bg-orange-700',
+      ghost: '  px-2 shadow-none hover:text-orange-600 dark:hover:text-orange-600',
+      outline: '  hover:text-white border border-orange-600 hover:bg-orange-600',
     },
   },
 
