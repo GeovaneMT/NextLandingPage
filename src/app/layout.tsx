@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html className={`scroll-smooth  ${inter.variable}`} lang="pt" suppressHydrationWarning>
       <body className="bg-gray-gray1 dark:bg-grayDark-gray1 dark:text-gray-gray8 text-grayDark-gray8 antialiased">
+        <SpeedInsights/>
         <ThemeProvider attribute="class" defaultTheme="system">
           {children}
         </ThemeProvider>
