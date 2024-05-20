@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { TabsJobs } from '@/components/tabs'
 import { ParallaxText } from '@/components/parallax-text'
-import { RevealListWrapper } from '@/components/reveal-list'
 import { LuBox, LuPalette, LuLightbulb} from "react-icons/lu"
 import { TypeWriter } from '@/components/typewriter'
 import { EmblaCarousel } from '@/components/Slider/carousel'
@@ -20,33 +19,13 @@ export default function Home() {
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
   return (
-    <RevealListWrapper
-      delay={0}
-      scale={1}
-      opacity={0}
-      interval={1500}
-      origin="top"
-      easing="ease-out"
-      distance="0rem"
-      reset={false}
-      className="flex flex-col gap-8"
-    >
+    <>
       <div className="relative h-[calc(90vh-4rem)]">
         <div className="flex flex-col justify-center w-full h-full pattern-dots pattern-grayDark-gray10 dark:pattern-gray-gray10 pattern-bg-transparent pattern-opacity-20 pattern-size-2">
           <ParallaxText baseVelocity={-5}>Brands Not Scars</ParallaxText>
           <ParallaxText baseVelocity={5}>Brands Not Scars</ParallaxText>
         </div>
         <div className="absolute inset-0 grid grid-rows-6 justify-center items-center px-8">
-          <RevealListWrapper
-            delay={0}
-            scale={1}
-            interval={1500}
-            origin="top"
-            easing="ease-out"
-            distance="0rem"
-            reset={false}
-            className="row-span-2 font-bold uppercase w-full text-center"
-          >
             <h1 className="text-black dark:text-white sm:text-3xl md:text-4xl" >
               <TypeWriter text='Soluções para sua empresa' />
             </h1>
@@ -58,7 +37,6 @@ export default function Home() {
             <p className='flex items-center justify-center gap-1 sm:gap-2'>e ideias<LuLightbulb />
             </p>
             </h2>
-          </RevealListWrapper>
         </div>
       </div>
       <div id='content' className="-mt-72 pt-24 mb-[calc(90vh-4rem)]">
@@ -98,6 +76,6 @@ export default function Home() {
             }
             />
       </div>
-    </RevealListWrapper>
+    </>
   )
 }
