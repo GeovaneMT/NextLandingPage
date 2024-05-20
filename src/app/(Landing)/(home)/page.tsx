@@ -1,12 +1,10 @@
 import { Metadata } from 'next'
-import { TabsJobs } from '@/components/tabs'
+import { TabsInfo } from '@/components/tabs/tabs'
 import { ParallaxText } from '@/components/parallax-text'
 import { LuBox, LuPalette, LuLightbulb} from "react-icons/lu"
 import { TypeWriter } from '@/components/typewriter'
 import { EmblaCarousel } from '@/components/Slider/carousel'
 import { EmblaOptionsType } from 'embla-carousel'
-
-
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -41,8 +39,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id='content' className="-mt-72 pt-24 mb-[calc(90vh-4rem)]">
-            <TabsJobs
+      <div
+        id='content' 
+        className="-mt-72 pt-24 "
+      >
+            <TabsInfo
               title1="Branding"
               title2="Design"
               title3="Acessoria"
@@ -52,7 +53,7 @@ export default function Home() {
               content1={
                 <>
                 
-                  <p>Com estratégias de design, marketing e comunicação nós construímos marcas, produtos e idéias que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas.</p>
+                  <p>Com estratégias de Branding e Comunicação nós construímos marcas que sobrevivem além dos seus criadores, se tornando inesquecíveis e ocupando um lugar no coração das pessoas.</p>
 
                   <EmblaCarousel slides={SLIDES} options={OPTIONS} />
               
